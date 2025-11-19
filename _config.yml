@@ -3,17 +3,20 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: You
-middle_name: R.
-last_name: Name
-contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+first_name: Haoming
+middle_name: 
+last_name: Wang
+contact_note: # You can even add a little note about which of these is the best way to reach you.
+email: wfrank0222@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  I am a researcher in the Department of Education Information Technology at the Faculty of Education, East China Normal University, Shanghai, China. My research sits at the intersection of artificial intelligence and education, with a particular focus on how emerging technologies can meaningfully enhance teaching and learning experiences.
+  My work centers on educational technology innovation, specializing in large language models (LLMs), AI-assisted teaching, and multi-agent systems. I employ rigorous methodologies including quasi-experimental designs, lag sequential analysis, epistemic network analysis (ENA), and bibliometric approaches to investigate the transformative potential of AI in educational contexts.
+  Currently, I am exploring AI agent empowerment in educational settings, developing intelligent assistants that can understand and adapt to learner needs while upholding ethical standards. My research philosophy bridges theoretical foundations with practical implementation, aiming to create technology-enhanced solutions that are both pedagogically sound and educationally impactful.
+  I am committed to advancing the responsible integration of artificial intelligence in education, ensuring that technological innovation serves the fundamental goal of improving learning outcomes for all students.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+#Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
