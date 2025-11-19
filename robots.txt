@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://frank-haoming.github.io/al-folio/sitemap.xml
+Sitemap: https://frank-haoming.github.io/sitemap.xml
