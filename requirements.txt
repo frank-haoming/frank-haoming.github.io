@@ -1,0 +1,8 @@
+nbconvert
+pyyaml
+scholarly
+curl-cffi
+DrissionPage
+beautifulsoup4
+pyyaml
+lxml
