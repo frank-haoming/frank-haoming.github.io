@@ -44,17 +44,23 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/lifeline/";
           },
-        },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
-            },},{id: "news-new",
+        },{id: "post-advanced-vosviewer-tutorial-from-data-cleaning-to-custom-coordinates",
+        
+          title: "Advanced VOSviewer Tutorial: From Data Cleaning to Custom Coordinates",
+        
+        description: "A step-by-step guide on visualizing bibliometric networks using custom layouts.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Vos/";
+          
+        },
+      },{id: "news-new",
           title: 'new!!!!!!!!!!!!!!!!!',
           description: "",
           section: "News",},{id: "projects-gai-元宇宙-联动赋能-虚拟学习空间的模式构建及应用开发",
           title: '“GAI+元宇宙”联动赋能：虚拟学习空间的模式构建及应用开发',
-          description: "教育信息技术系应用性研究项目介绍（含示意图）",
+          description: "教育信息技术系应用性研究项目介绍",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{
