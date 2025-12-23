@@ -30,6 +30,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cfp/";
           },
+        },{id: "nav-journal-rankings",
+          title: "Journal Rankings",
+          description: "HM Score combines journal quality metrics and author-friendliness",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/journal-rankings/";
+          },
         },{id: "nav-projects",
           title: "Projects",
           description: "A growing collection of cool projects.",
