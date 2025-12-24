@@ -35,7 +35,7 @@ ninja.data = [{
           description: "HM Score combines journal quality metrics and author-friendliness",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/journal-rankings/";
+            window.location.href = "/jrank/";
           },
         },{id: "nav-projects",
           title: "Projects",
