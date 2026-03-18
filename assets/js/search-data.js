@@ -51,7 +51,51 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/lifeline/";
           },
-        },{id: "post-advanced-vosviewer-tutorial-from-data-cleaning-to-custom-coordinates",
+        },{id: "post-openclaw-ecnu-ai-setup-series-overview",
+        
+          title: "OpenClaw × ECNU AI: Setup Series Overview",
+        
+        description: "A guide to the three OpenClaw setup posts: retrieving API credentials, completing the local installation, and connecting a Feishu bot.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/openclaw-series/";
+          
+        },
+      },{id: "post-openclaw-setup-iii-connect-a-feishu-bot",
+        
+          title: "OpenClaw Setup (III): Connect a Feishu Bot",
+        
+        description: "Extend OpenClaw into Feishu by enabling the plugin, creating an app, importing permissions, and configuring event subscriptions.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/openclaw-tutorial-3/";
+          
+        },
+      },{id: "post-openclaw-setup-ii-install-openclaw-and-connect-ecnu-ai",
+        
+          title: "OpenClaw Setup (II): Install OpenClaw and Connect ECNU AI",
+        
+        description: "Install OpenClaw locally, connect it to the ECNU AI platform, and verify that the environment works end to end.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/openclaw-tutorial-2/";
+          
+        },
+      },{id: "post-openclaw-setup-i-retrieve-ecnu-ai-api-credentials",
+        
+          title: "OpenClaw Setup (I): Retrieve ECNU AI API Credentials",
+        
+        description: "Retrieve the API key, base URL, and model name from ChatECNU before connecting OpenClaw.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/openclaw-tutorial-1/";
+          
+        },
+      },{id: "post-advanced-vosviewer-tutorial-from-data-cleaning-to-custom-coordinates",
         
           title: "Advanced VOSviewer Tutorial: From Data Cleaning to Custom Coordinates",
         
@@ -89,7 +133,7 @@ ninja.data = [{
         title: 'Google Scholar',
         section: 'Socials',
         handler: () => {
-          window.open("https://scholar.google.com/citations?user=VV0nEt4AAAAJ", "_blank");
+          window.open("https://scholar.google.com/citations?user=RkLnsEwAAAAJ", "_blank");
         },
       },{
       id: 'light-theme',
