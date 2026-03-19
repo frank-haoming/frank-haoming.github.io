@@ -1,6 +1,7 @@
 nbconvert
 pyyaml
 scholarly
+httpx<0.28
 curl-cffi
 DrissionPage
 beautifulsoup4
