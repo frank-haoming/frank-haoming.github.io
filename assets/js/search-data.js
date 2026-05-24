@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-publications",
           title: "Publications",
-          description: "publications by categories and year in reversed chronological order.",
+          description: "Selected publications on AI-enhanced education, learning analytics, and bibliometrics.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
@@ -39,7 +39,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "Projects",
-          description: "A growing collection of cool projects.",
+          description: "Research projects on AI-powered educational innovations.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -106,8 +106,14 @@ ninja.data = [{
             window.location.href = "/blog/2025/Vos/";
           
         },
-      },{id: "news-new",
-          title: 'new!!!!!!!!!!!!!!!!!',
+      },{id: "news-presented-at-isls-2025-annual-meeting-in-helsinki-finland-and-aera-2025-in-colorado-usa",
+          title: 'Presented at ISLS 2025 Annual Meeting in Helsinki, Finland and AERA 2025 in...',
+          description: "",
+          section: "News",},{id: "news-awarded-the-national-scholarship-top-2-of-postgraduates",
+          title: 'Awarded the National Scholarship (Top 2% of Postgraduates).',
+          description: "",
+          section: "News",},{id: "news-poster-presentation-at-emnlp-2025-in-suzhou-china",
+          title: 'Poster presentation at EMNLP 2025 in Suzhou, China.',
           description: "",
           section: "News",},{id: "projects-gai-元宇宙-联动赋能-虚拟学习空间的模式构建及应用开发",
           title: '“GAI+元宇宙”联动赋能：虚拟学习空间的模式构建及应用开发',
