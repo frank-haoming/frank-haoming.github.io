@@ -115,6 +115,9 @@ ninja.data = [{
           section: "News",},{id: "news-poster-presentation-at-emnlp-2025-in-suzhou-china",
           title: 'Poster presentation at EMNLP 2025 in Suzhou, China.',
           description: "",
+          section: "News",},{id: "news-admitted-to-tsinghua-university-beginning-doctoral-studies-this-autumn",
+          title: 'Admitted to Tsinghua University — beginning doctoral studies this autumn.',
+          description: "",
           section: "News",},{id: "projects-gai-元宇宙-联动赋能-虚拟学习空间的模式构建及应用开发",
           title: '“GAI+元宇宙”联动赋能：虚拟学习空间的模式构建及应用开发',
           description: "教育信息技术系应用性研究项目介绍",
@@ -141,30 +144,4 @@ ninja.data = [{
         handler: () => {
           window.open("https://scholar.google.com/citations?user=RkLnsEwAAAAJ", "_blank");
         },
-      },{
-      id: 'light-theme',
-      title: 'Change theme to light',
-      description: 'Change the theme of the site to Light',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("light");
-      },
-    },
-    {
-      id: 'dark-theme',
-      title: 'Change theme to dark',
-      description: 'Change the theme of the site to Dark',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("system");
-      },
-    },];
+      },];
