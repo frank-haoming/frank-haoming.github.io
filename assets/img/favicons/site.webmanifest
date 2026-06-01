@@ -1,0 +1,20 @@
+{
+  "name": "Haoming Wang · 王浩名",
+  "short_name": "Haoming Wang",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#660874",
+  "background_color": "#f2eef7",
+  "icons": [
+    {
+      "src": "/assets/img/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
