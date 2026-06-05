@@ -13,6 +13,18 @@
   // (common.js, search-setup.js, no_defer.js, chart setups) call this global
   // and would otherwise throw ReferenceError, aborting their setup.
   window.determineComputedTheme = function () { return "light"; };
+</script> <script>
+  (function () {
+    try {
+      var ok = !window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (ok) {
+        document.documentElement.classList.add("hw-anim");
+        window.__hwAnimFallback = setTimeout(function () {
+          document.documentElement.classList.remove("hw-anim");
+        }, 2500);
+      }
+    } catch (e) {}
+  })();
 </script> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> OpenClaw Setup (III): Connect a Feishu Bot | Haoming Wang </title> <meta name="author" content="Haoming Wang"> <meta name="description" content="Extend OpenClaw into Feishu by enabling the plugin, creating an app, importing permissions, and configuring event subscriptions."> <meta name="keywords" content="Haoming Wang, AI in Education, Educational Technology, Large Language Models, LLMs, Multi-agent Systems, East China Normal University, THU, Tsinghua University"> <meta property="og:site_name" content="Haoming Wang"> <meta property="og:type" content="article"> <meta property="og:title" content="Haoming Wang | OpenClaw Setup (III): Connect a Feishu Bot"> <meta property="og:url" content="https://frank-haoming.github.io/blog/2026/openclaw-tutorial-3/"> <meta property="og:description" content="Extend OpenClaw into Feishu by enabling the plugin, creating an app, importing permissions, and configuring event subscriptions."> <meta property="og:image" content="https://frank-haoming.github.io/assets/img/photo1.jpg"> <meta property="og:locale" content="en"> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="OpenClaw Setup (III): Connect a Feishu Bot"> <meta name="twitter:description" content="Extend OpenClaw into Feishu by enabling the plugin, creating an app, importing permissions, and configuring event subscriptions."> <meta name="twitter:image" content="https://frank-haoming.github.io/assets/img/photo1.jpg"> <script type="application/ld+json">
     {
         "author":
