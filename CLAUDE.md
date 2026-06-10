@@ -60,6 +60,13 @@ Data sources flow through 5 crawlers in sequence:
 
 Scrapes publisher special-issue/collection pages. Uses FlareSolverr for Cloudflare-protected sites, falls back to curl_cffi. Outputs sorted by `fullpaper_deadline_sort`.
 
+Routing notes (2026-06): **Springer must go through FlareSolverr** — link.springer.com
+added an idp.springer.com cookie/JS gate, so curl_cffi only gets a 3 KB challenge stub
+(HTTP 200, looks like success, parses 0). **Elsevier/ScienceDirect must too** — curl_cffi
+gets 403 from cloud IPs; via FlareSolverr the /about/call-for-papers page loads and
+parses fine (journals with no active calls redirect to the journal homepage → legitimate 0).
+UChicago journal homepages genuinely list no CFPs (parser kept for the future).
+
 ### FlareSolverr
 
 Docker container for Cloudflare bypass, port 8191. Works from GitHub Actions cloud IPs but **times out locally** for Wiley/SAGE/T&F — local testing of publisher crawlers is unreliable.
@@ -69,8 +76,11 @@ Docker container for Cloudflare bypass, port 8191. Works from GitHub Actions clo
 | Workflow | Schedule | Trigger | Output |
 |---|---|---|---|
 | `daily_cfp.yml` | Every 2 days 21:00 UTC | `workflow_dispatch` | `_data/cfps.yml` |
-| `update_journal_rankings.yml` | 5th & 25th of month, 02:00 UTC | `workflow_dispatch` | `_data/jrank.yml` |
-| `update-citations.yml` | Manual | — | `_data/citations.yml` |
+| `update_journal_rankings.yml` | 5th & 25th of month, 02:00 UTC | `workflow_dispatch` | `_data/jrank.yml` + `_data/jaims.yml` |
+| `update-citations.yml` | Mon/Wed/Fri 00:00 UTC | `workflow_dispatch` | `_data/citations.yml` |
+
+The citations workflow needs `permissions: contents: write` + the `PAGE` PAT checkout
+(both added 2026-06); without them its push fails with HTTP 403 and the run rots silently.
 
 Secrets: `PAGE` (CFP workflow PAT), `JOU` (journal rankings PAT), `EASYSCHOLAR_KEY` (API key).
 
@@ -84,6 +94,7 @@ Both data workflows use FlareSolverr as a service container and auto-commit chan
 | `_data/journal_cfp.json` | JSON | CFP journal list: name, collections URL, tags |
 | `_data/jrank.yml` | YAML | Computed journal metrics (output of ranking pipeline) |
 | `_data/cfps.yml` | YAML | Scraped CFP entries (output of CFP pipeline) |
+| `_data/jaims.yml` | YAML | Journal aims & scope (bin/scrape_aims.py; feeds the venue recommender's topical matching) |
 | `_bibliography/papers.bib` | BibTeX | Publications (rendered via jekyll-scholar) |
 
 ### URL conventions in journal_rank.json

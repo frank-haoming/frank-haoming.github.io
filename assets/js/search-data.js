@@ -116,7 +116,7 @@ ninja.data = [{
           title: 'Poster presentation at EMNLP 2025 in Suzhou, China.',
           description: "",
           section: "News",},{id: "news-admitted-to-tsinghua-university-beginning-doctoral-studies-this-autumn",
-          title: 'Admitted to Tsinghua University — beginning doctoral studies this autumn.',
+          title: 'Admitted to Tsinghua University, beginning doctoral studies this autumn.',
           description: "",
           section: "News",},{id: "projects-gai-元宇宙-联动赋能-虚拟学习空间的模式构建及应用开发",
           title: '“GAI+元宇宙”联动赋能：虚拟学习空间的模式构建及应用开发',
