@@ -54,6 +54,15 @@ Data sources flow through 5 crawlers in sequence:
 
 **Data preservation rule:** empty crawler results never overwrite existing non-empty values in jrank.yml. This is intentional — prevents bad scrape runs from erasing good data.
 
+**Incremental save + `--only-missing` (added 2026-06):** both the Scopus script and the
+publisher/EasyScholar updater write jrank.yml every 10 journals (`--save-every`), and accept
+`--only-missing` to skip journals that already have data. This matters because a full re-scrape
+of all ~390 journals through the Scopus *headless browser* exceeds GitHub's 6h job ceiling →
+the run is `cancelled` → the final-only save committed nothing (this silently wasted a 6h run on
+2026-06-11). The rankings workflow now defaults to `--only-missing` (finishes in minutes, fills
+gaps only); a full re-scrape happens only on manual dispatch with `full_refresh=true`. The
+orchestrator `journal_data_manager.py` forwards `--only-missing` to both sub-scripts.
+
 **HM Score** ("友好性指数" / friendliness index): composite score where acceptance_rate is additive (higher rate = friendlier = higher score). This is intentional, NOT inverse.
 
 ### scrape_cfps.py — CFP scraper
