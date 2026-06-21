@@ -42,15 +42,19 @@ _data/journal_rank.json  →  bin/journal_ranking_updater.py  →  _data/jrank.y
 
 ### journal_ranking_updater.py — key internals
 
-Data sources flow through 5 crawlers in sequence:
+Data sources flow through 7 crawlers in sequence:
 1. **EasyScholar API** → purple_quartile (JCR), purple_score (IF), red_division (CAS)
    - Queries by ISSN extracted from URLs; SSCI first, falls back to SCI
 2. **Scopus (via DrissionPage)** → orange_quartile, orange_score (CiteScore), orange_percentile, documents
 3. **WileyCrawler** (FlareSolverr) → acceptance_rate, review times
    - URL must be `/journal/{ISSN}/journal-metrics` format
 4. **SageCrawler** (FlareSolverr) → acceptance_rate, review times
-   - URL must be `/home/{code}` format (NOT `/overview-metric/` — those render via JS, FlareSolverr can't get the data)
+   - Config URL is `/home/{code}`, crawler derives `/overview-metric/{code}` (changed 2026-06: `/home/` no longer shows metrics)
 5. **TandFCrawler** (FlareSolverr) → acceptance_rate, review times
+6. **APACrawler** (FlareSolverr) → first_decision_time, acceptance_rate, publication_time
+   - Fetches `/pubs/journals/{code}/about`; bypasses Incapsula via FlareSolverr
+7. **NatureCrawler** (plain requests, no FlareSolverr) → first_decision_time, acceptance_time
+   - Fetches `nature.com/{slug}/journal-impact`; 4 of 6 Nature journals have data
 
 **Data preservation rule:** empty crawler results never overwrite existing non-empty values in jrank.yml. This is intentional — prevents bad scrape runs from erasing good data.
 
@@ -117,8 +121,10 @@ URLs must point to the correct metrics page per publisher:
 - **Springer**: `https://link.springer.com/journal/{id}` (default journal page)
 - **Elsevier**: `https://www.sciencedirect.com/journal/{slug}/about/insights` (must have `/about/insights`)
 - **Wiley**: `https://onlinelibrary.wiley.com/journal/{ISSN}/journal-metrics`
-- **SAGE**: `https://journals.sagepub.com/home/{code}` (NOT `/overview-metric/`)
+- **SAGE**: `https://journals.sagepub.com/home/{code}` (crawler derives `/overview-metric/{code}` automatically)
 - **Taylor & Francis**: varies by journal (no uniform pattern)
+- **APA**: `https://www.apa.org/pubs/journals/{code}` (crawler appends `/about`)
+- **Nature**: `https://www.nature.com/{slug}/` (crawler appends `journal-impact`)
 
 ## Page Architecture
 
