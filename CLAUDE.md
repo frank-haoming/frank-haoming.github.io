@@ -42,7 +42,7 @@ _data/journal_rank.json  →  bin/journal_ranking_updater.py  →  _data/jrank.y
 
 ### journal_ranking_updater.py — key internals
 
-Data sources flow through 7 crawlers in sequence:
+Data sources flow through 8 crawlers in sequence:
 1. **EasyScholar API** → purple_quartile (JCR), purple_score (IF), red_division (CAS)
    - Queries by ISSN extracted from URLs; SSCI first, falls back to SCI
 2. **Scopus (via DrissionPage)** → orange_quartile, orange_score (CiteScore), orange_percentile, documents
@@ -55,6 +55,8 @@ Data sources flow through 7 crawlers in sequence:
    - Fetches `/pubs/journals/{code}/about`; bypasses Incapsula via FlareSolverr
 7. **NatureCrawler** (plain requests, no FlareSolverr) → first_decision_time, acceptance_time
    - Fetches `nature.com/{slug}/journal-impact`; 4 of 6 Nature journals have data
+8. **UChicagoCrawler** (FlareSolverr) → acceptance_rate, first_decision_time
+   - Fetches `/journals/{code}/turnaround-times`; currently only JPE has data (others 404)
 
 **Data preservation rule:** empty crawler results never overwrite existing non-empty values in jrank.yml. This is intentional — prevents bad scrape runs from erasing good data.
 
@@ -125,6 +127,7 @@ URLs must point to the correct metrics page per publisher:
 - **Taylor & Francis**: varies by journal (no uniform pattern)
 - **APA**: `https://www.apa.org/pubs/journals/{code}` (crawler appends `/about`)
 - **Nature**: `https://www.nature.com/{slug}/` (crawler appends `journal-impact`)
+- **UChicago**: `https://www.journals.uchicago.edu/journals/{code}/about` (crawler derives `/turnaround-times`)
 
 ## Page Architecture
 
