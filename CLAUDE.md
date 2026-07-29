@@ -78,7 +78,7 @@ the final-only save committed nothing (silently wasted a 6h run on 2026-06-11). 
 
 ### scrape_cfps.py — CFP scraper
 
-Scrapes publisher special-issue/collection pages. Uses FlareSolverr for Cloudflare-protected sites, falls back to curl_cffi. Outputs sorted by `fullpaper_deadline_sort`.
+Scrapes publisher special-issue/collection pages. Uses FlareSolverr for Cloudflare-protected sites, falls back to curl_cffi. Outputs are sorted by the earliest known submission-stage deadline in `fullpaper_deadline_sort` (legacy field name).
 
 Routing notes (2026-06): **Springer must go through FlareSolverr** — link.springer.com
 added an idp.springer.com cookie/JS gate, so curl_cffi only gets a 3 KB challenge stub
